@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A travel website for finding best deals.">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main_style.css">
+    <script src="main.js"></script>
+
+
+    <title>Max Travel</title>
+</head>
+
+<body>
+
+    <div class="hero-section">
+        <header>
+            <a id="logo"><img src="images/MAXIMUM-TRAVELS-LOGO-2.png"></a>
+            <nav>
+                <button id="btn-gift-card" type="button"><a href="gift_cards.html">Gift Cards</a></button> <a>About
+                    Us</a> <a>Contact
+                    Us</a>
+            </nav>
+        </header>
+
+        <div class="tab-control" id="tab-conrols">
+            <button id="tab-hotels" onclick="ontabClick(event, 'hotels')">Hotels
+            </button>
+
+            <button id="tab-flights" onclick="ontabClick(event, 'flights')">Flights
+            </button>
+
+            <button id="tab-packages" onclick="ontabClick(event, 'packages')">Packages
+            </button>
+
+            <button id="tab-car-rental" onclick="ontabClick(event, 'car-rental')">Car Rental
+            </button>
+
+            <button id="tab-adventure-tickets" onclick="ontabClick(event, 'adventure-tickets')">Adventure
+                Tickets
+            </button>
+
+        </div>
+
+
+        <div id="hotels" class="tab-content">
+            <div class="content-fields">
+
+                <div class="input-container">
+                    <label for="city" id="label-city">
+                        <input type="text" id="city" placeholder="City">
+                        <span>City</span>
+                    </label>
+                </div>
+                <div class="vl" id="city-sep"></div>
+
+                <div class="input-container">
+                    <label for="arrival-date" id="label-arrival-date">
+                        <input type="text" id="arrival-date" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Arrival Date">
+                        <span>Arrival Date</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="departure-date" id="label-departure-date">
+                        <input type="text" id="departure-date" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Departure Date">
+                        <span>Departure Date</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="adults" id="label-adults">
+                        <input type="number" id="adults" placeholder="Adults">
+                        <span>Adults</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="children" id="label-children">
+                        <input type="number" id="children" placeholder="Children">
+                        <span>Children</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="other" id="label-others">
+                        <input type="text" id="other" placeholder="Other">
+                        <span>Other</span>
+                    </label>
+                </div>
+
+            </div>
+            <button id="request-quote" type="button" onclick="onRequestQuoteClick(event,id)">Request Quote</button>
+
+
+        </div>
+
+        <div id="flights" class="tab-content">
+            <div class="content-fields">
+
+                <div class="input-container">
+                    <label for="origin" id="label-origin">
+                        <input type="text" id="origin" placeholder="Origin">
+                        <span>Origin</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+                <div class="input-container">
+                    <label for="destination" id="label-destination">
+                        <input type="text" id="destination" placeholder="Destination">
+                        <span>Destination</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+                <div class="input-container">
+                    <label for="outbound-date" id="label-outbound-date">
+                        <input type="text" id="outbound-date" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Outbound Date">
+                        <span>Outbound Date</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="return-date" id="label-return-date">
+                        <input type="text" id="return-date" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Return Date">
+                        <span>Return Date</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="adults-flight" id="label-adults-flight">
+                        <input type="number" id="adults-flight" placeholder="Adults">
+                        <span>Adults</span>
+                    </label>
+                </div>
+                <div class="vl" id="adults-sep"></div>
+
+
+                <div class="input-container">
+                    <label for="children-flight" id="label-children-flight">
+                        <input type="number" id="children-flight" placeholder="Children">
+                        <span>Children</span>
+                    </label>
+                </div>
+
+            </div>
+            <button id="request-quote" type="button">Request Quote</button>
+        </div>
+
+        <div id="packages" class="tab-content">
+            <div class="content-fields">
+
+                <div class="input-container">
+                    <label for="origin-package" id="label-origin-package">
+                        <input type="text" id="origin-package" placeholder="Origin">
+                        <span>Origin</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+                <div class="input-container">
+                    <label for="destination-package" id="label-destination-package">
+                        <input type="text" id="destination-package" placeholder="Destination">
+                        <span>Destination</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+                <div class="input-container">
+                    <label for="outbound-date-package" id="label-outbound-date-package">
+                        <input type="text" id="outbound-date-package" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Outbound Date">
+                        <span>Outbound Date</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="return-date-package" id="label-return-date-package">
+                        <input type="text" id="return-date-package" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Return Date">
+                        <span>Return Date</span>
+                    </label>
+                </div>
+
+            </div>
+            <button id="request-quote" type="button">Request Quote</button>
+        </div>
+
+        <div id="car-rental" class="tab-content">
+            <div class="content-fields">
+
+                <div class="input-container">
+                    <label for="pickup-loc" id="label-pickup-loc">
+                        <input type="text" id="pickup-loc" placeholder="Pickup location">
+                        <span>Pickup location</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+                <div class="input-container">
+                    <label for="from" id="label-from">
+                        <input type="text" id="from" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="From">
+                        <span>From</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="to" id="label-to">
+                        <input type="text" id="to" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="To">
+                        <span>To</span>
+                    </label>
+                </div>
+
+            </div>
+            <button id="request-quote" type="button">Request Quote</button>
+        </div>
+
+        <div id="adventure-tickets" class="tab-content">
+            <div class="content-fields">
+
+                <div class="input-container">
+                    <label for="park" id="label-park">
+                        <input type="text" id="park" placeholder="Park">
+                        <span>Park</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+                <div class="input-container">
+                    <label for="valid-from" id="label-valid-from">
+                        <input type="text" id="from" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Valid from">
+                        <span>Valid from</span>
+                    </label>
+                </div>
+                <div class="vl"></div>
+
+
+                <div class="input-container">
+                    <label for="valid-to" id="label-valid-to">
+                        <input type="text" id="to" onfocus="(this.type='date')"
+                            onblur="if (this.value === ''){this.type='text'}" placeholder="Valid to">
+                        <span>Valid to</span>
+                    </label>
+                </div>
+
+            </div>
+            <button id="request-quote" type="button">Request Quote</button>
+        </div>
+
+        <div id="mid-section">
+            <img src="images/Surprise you loved ones.png">
+        </div>
+
+    </div>
+
+    <div id="gift-cards">
+        <div class="gift-card-item">
+            <img src="images/gc-1.png">
+            <button>Buy Now</button>
+        </div>
+
+        <div class="gift-card-item">
+            <img src="images/gc-2.png">
+            <button>Buy Now</button>
+        </div>
+
+        <div class="gift-card-item">
+            <img src="images/gc-3.png">
+            <button>Buy Now</button>
+        </div>
+
+        <div class="gift-card-item">
+            <img src="images/gc-4.png">
+            <button>Buy Now</button>
+        </div>
+    </div>
+
+    <div id="transparent-container">
+
+    </div>
+
+    <div class="pop-up">
+        <form id="personal-info" action="/results.html">
+            <span id="close" onclick="onCloseClick(event)">X</span>
+            <p>Tell us a bit about yourself</p>
+            <div id="name-fileds-container">
+                <div id="fname-field">
+                    <label for="fname">Your first name</label><br />
+                    <input type="text" placeholder="First name" id="fname" /><br />
+                </div>
+
+                <div id="lname-field">
+                    <label for="lname">Your last name</label><br />
+                    <input type="text" id="lname" placeholder="Last name" /><br />
+                </div>
+
+            </div>
+
+            <div id="email-container">
+                <label> Enter your email</label><br />
+                <input type="email" id="email" placeholder="Your email" /><br />
+            </div>
+
+
+            <div id="checkbox-container">
+                <input type="checkbox" checked id="chbPrivacy" />
+                <label for="chbPrivacy">I agree to terms and conditions.</label><br />
+            </div>
+
+
+
+            <input type="submit" value="Continue" id="btn-submit" />
+
+        </form>
+    </div>
+
+
+    <footer>&copy;2022 Maximum Travel. All rights reserved.</footer>
+
+    
+</body>
+
+</html>
