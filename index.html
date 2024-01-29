@@ -1,350 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A travel website for finding best deals.">
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="main_style.css">
-    <script src="main.js"></script>
-
-
-    <title>Max Travel</title>
-</head>
-
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Finlandica:wght@400;500;600;700&family=Marcellus&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="hero-section">
-        <header>
-            <a id="logo"><img src="images/MAXIMUM-TRAVELS-LOGO-2.png"></a>
-            <nav>
-                <button id="btn-gift-card" type="button"><a href="gift_cards.html">Gift Cards</a></button> <a>About
-                    Us</a> <a>Contact
-                    Us</a>
-            </nav>
-        </header>
+      <div class="header">
+        <img src="images/MAXIMUM-TRAVELS-LOGO-2.png" class="logo" />
+        <nav>
+          <ul class="nav-list">
+            <li class="list-item">
+              <a class="list-link" title="Gift Cards" href="#">Gift Cards</a>
+            </li>
+            <li class="list-item">
+              <a class="list-link" title="About Us" href="#about-us"
+                >About Us</a
+              >
+            </li>
+            <li class="list-item">
+              <a class="list-link" title="Contact Us" href="#contact-us"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="tab-control">
+        <div class="tab-top">
+          <div id="tab-hotels" class="tab-option active">
+            <img src="images/icons/bed-inactive.png" class="icon" /> Hotels
 
-        <div class="tab-control" id="tab-conrols">
-            <button id="tab-hotels" onclick="ontabClick(event, 'hotels')">Hotels
-            </button>
+            <div class="tab-option-body hide-fields">
+              <div class="input-container">
+                <input
+                  id="city"
+                  type="text"
+                  class="input-field"
+                  placeholder="City"
+                />
+                <label for="" class="input-label">City </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="arrival-date"
+                  placeholder="Arrival Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Arrival Date </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="departure-date"
+                  placeholder="Departure Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Departure Date </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="adults-no"
+                  placeholder="Adults No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Adults No. </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="children-no"
+                  placeholder="Children No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Children No. </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="other"
+                  placeholder="Other"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Other </label>
+              </div>
 
-            <button id="tab-flights" onclick="ontabClick(event, 'flights')">Flights
-            </button>
-
-            <button id="tab-packages" onclick="ontabClick(event, 'packages')">Packages
-            </button>
-
-            <button id="tab-car-rental" onclick="ontabClick(event, 'car-rental')">Car Rental
-            </button>
-
-            <button id="tab-adventure-tickets" onclick="ontabClick(event, 'adventure-tickets')">Adventure
-                Tickets
-            </button>
-
-        </div>
-
-
-        <div id="hotels" class="tab-content">
-            <div class="content-fields">
-
-                <div class="input-container">
-                    <label for="city" id="label-city">
-                        <input type="text" id="city" placeholder="City">
-                        <span>City</span>
-                    </label>
-                </div>
-                <div class="vl" id="city-sep"></div>
-
-                <div class="input-container">
-                    <label for="arrival-date" id="label-arrival-date">
-                        <input type="text" id="arrival-date" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Arrival Date">
-                        <span>Arrival Date</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="departure-date" id="label-departure-date">
-                        <input type="text" id="departure-date" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Departure Date">
-                        <span>Departure Date</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="adults" id="label-adults">
-                        <input type="number" id="adults" placeholder="Adults">
-                        <span>Adults</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="children" id="label-children">
-                        <input type="number" id="children" placeholder="Children">
-                        <span>Children</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="other" id="label-others">
-                        <input type="text" id="other" placeholder="Other">
-                        <span>Other</span>
-                    </label>
-                </div>
-
+              <button id="cta-hotel">Request Quote</button>
             </div>
-            <button id="request-quote" type="button" onclick="onRequestQuoteClick(event,id)">Request Quote</button>
+          </div>
+          <div id="tab-flights" class="tab-option">
+            <img
+              src="images/icons/departures-inactive.png"
+              class="icon"
+            />Flights
+            <div class="tab-option-body hide-fields">
+              <div class="input-container">
+                <input
+                  id="origin"
+                  placeholder="Origin"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Origin </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="destination"
+                  placeholder="Destination"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Destination </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="outbound-date"
+                  placeholder="Outbound Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Outbound Date </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="return-date"
+                  placeholder="Return Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Return Date </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="adults-no-flight"
+                  placeholder="Adults No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Adults No. </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="children-no-flight"
+                  placeholder="Children No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Children No. </label>
+              </div>
 
-
-        </div>
-
-        <div id="flights" class="tab-content">
-            <div class="content-fields">
-
-                <div class="input-container">
-                    <label for="origin" id="label-origin">
-                        <input type="text" id="origin" placeholder="Origin">
-                        <span>Origin</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-                <div class="input-container">
-                    <label for="destination" id="label-destination">
-                        <input type="text" id="destination" placeholder="Destination">
-                        <span>Destination</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-                <div class="input-container">
-                    <label for="outbound-date" id="label-outbound-date">
-                        <input type="text" id="outbound-date" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Outbound Date">
-                        <span>Outbound Date</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="return-date" id="label-return-date">
-                        <input type="text" id="return-date" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Return Date">
-                        <span>Return Date</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="adults-flight" id="label-adults-flight">
-                        <input type="number" id="adults-flight" placeholder="Adults">
-                        <span>Adults</span>
-                    </label>
-                </div>
-                <div class="vl" id="adults-sep"></div>
-
-
-                <div class="input-container">
-                    <label for="children-flight" id="label-children-flight">
-                        <input type="number" id="children-flight" placeholder="Children">
-                        <span>Children</span>
-                    </label>
-                </div>
-
+              <button id="cta-flight">Request Quote</button>
             </div>
-            <button id="request-quote" type="button">Request Quote</button>
-        </div>
+          </div>
+          <div id="tab-packages" class="tab-option">
+            <img src="images/icons/box-inactive.png" class="icon" />Packages
+            <div class="tab-option-body hide-fields">
+              <div class="input-container">
+                <input
+                  id="origin-package"
+                  placeholder="Origin"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Origin </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="destination-package"
+                  placeholder="Destination"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Destination </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="outbound-date-package"
+                  placeholder="Outbound Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Outbound Date </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="return-date-package"
+                  placeholder="Return Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Return Date </label>
+              </div>
 
-        <div id="packages" class="tab-content">
-            <div class="content-fields">
-
-                <div class="input-container">
-                    <label for="origin-package" id="label-origin-package">
-                        <input type="text" id="origin-package" placeholder="Origin">
-                        <span>Origin</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-                <div class="input-container">
-                    <label for="destination-package" id="label-destination-package">
-                        <input type="text" id="destination-package" placeholder="Destination">
-                        <span>Destination</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-                <div class="input-container">
-                    <label for="outbound-date-package" id="label-outbound-date-package">
-                        <input type="text" id="outbound-date-package" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Outbound Date">
-                        <span>Outbound Date</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="return-date-package" id="label-return-date-package">
-                        <input type="text" id="return-date-package" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Return Date">
-                        <span>Return Date</span>
-                    </label>
-                </div>
-
+              <button id="cta-package">Request Quote</button>
             </div>
-            <button id="request-quote" type="button">Request Quote</button>
-        </div>
+          </div>
+          <div id="tab-car-rental" class="tab-option">
+            <img src="images/icons/car-inactive.png" class="icon" />Car Rental
+            <div class="tab-option-body hide-fields">
+              <div class="input-container">
+                <input
+                  id="pickup-loc-rental"
+                  placeholder="Pickup Location"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Pickup Location </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="from-rental"
+                  placeholder="From"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">From </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="to-rental"
+                  placeholder="To"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">To </label>
+              </div>
 
-        <div id="car-rental" class="tab-content">
-            <div class="content-fields">
-
-                <div class="input-container">
-                    <label for="pickup-loc" id="label-pickup-loc">
-                        <input type="text" id="pickup-loc" placeholder="Pickup location">
-                        <span>Pickup location</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-                <div class="input-container">
-                    <label for="from" id="label-from">
-                        <input type="text" id="from" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="From">
-                        <span>From</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="to" id="label-to">
-                        <input type="text" id="to" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="To">
-                        <span>To</span>
-                    </label>
-                </div>
-
+              <button id="cta-rental">Request Quote</button>
             </div>
-            <button id="request-quote" type="button">Request Quote</button>
-        </div>
+          </div>
+          <div id="tab-adventure-tickets" class="tab-option">
+            <img src="images/icons/ticket-inactive.png" class="icon" />Adventure
+            Tickets
+            <div class="tab-option-body hide-fields">
+              <div class="input-container">
+                <input
+                  id="park-adv"
+                  placeholder="Park"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Park </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="valid-from-adv"
+                  placeholder="Valid from"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Valid from </label>
+              </div>
+              <div class="input-container">
+                <input
+                  id="valid-to-adv"
+                  placeholder="Valid to"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Valid to </label>
+              </div>
 
-        <div id="adventure-tickets" class="tab-content">
-            <div class="content-fields">
-
-                <div class="input-container">
-                    <label for="park" id="label-park">
-                        <input type="text" id="park" placeholder="Park">
-                        <span>Park</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-                <div class="input-container">
-                    <label for="valid-from" id="label-valid-from">
-                        <input type="text" id="from" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Valid from">
-                        <span>Valid from</span>
-                    </label>
-                </div>
-                <div class="vl"></div>
-
-
-                <div class="input-container">
-                    <label for="valid-to" id="label-valid-to">
-                        <input type="text" id="to" onfocus="(this.type='date')"
-                            onblur="if (this.value === ''){this.type='text'}" placeholder="Valid to">
-                        <span>Valid to</span>
-                    </label>
-                </div>
-
+              <button id="cta-adv">Request Quote</button>
             </div>
-            <button id="request-quote" type="button">Request Quote</button>
+          </div>
         </div>
+        <div class="tab-fields show-init">
+          <!-- Hotels -->
+          <section id="hotel-section-init" class="show-init">
+            <div id="hotel-container-init">
+              <div class="input-container input-container__full-width">
+                <input
+                  id="city-init"
+                  placeholder="City"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">City </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="arrival-date-init"
+                  placeholder="Arrival Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Arrival Date </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="departure-date-init"
+                  placeholder="Departure Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Departure Date </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="adults-no-init"
+                  placeholder="Adults No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Adults No. </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="children-no-init"
+                  placeholder="Children No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Children No. </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="other-init"
+                  placeholder="Other"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Other </label>
+              </div>
+            </div>
 
-        <div id="mid-section">
-            <img src="images/Surprise you loved ones.png">
+            <button id="cta-hotel-init">Request Quote</button>
+          </section>
+
+          <!-- Flight -->
+          <section id="flight-section-init" class="hide-init">
+            <div id="flight-container-init">
+              <div class="input-container input-container__full-width">
+                <input
+                  id="origin-init"
+                  placeholder="Origin"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Origin </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="destination-init"
+                  placeholder="Destination"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Destination </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="outbound-date-init"
+                  placeholder="Outbound Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Destination </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="return-date-init"
+                  placeholder="Return Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Return Date </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="adults-no-flight-init"
+                  placeholder="Adults No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Adults No. </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="children-no-flight-init"
+                  placeholder="Children No."
+                  class="input-field"
+                  type="number"
+                />
+                <label for="" class="input-label">Children No. </label>
+              </div>
+            </div>
+            <button id="cta-flight-init">Request Quote</button>
+          </section>
+          <!-- Rental -->
+          <section id="rental-section-init" class="hide-init">
+            <div id="rental-container-init">
+              <div class="input-container input-container__full-width">
+                <input
+                  id="pickup-loc-rental-init"
+                  placeholder="Pickup Location"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Pickup Location </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="from-rental-init"
+                  placeholder="From"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">From </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="to-rental-init"
+                  placeholder="To"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">To </label>
+              </div>
+            </div>
+            <button id="cta-rental-init">Request Quote</button>
+          </section>
+          <!-- Package -->
+          <section id="package-section-init" class="hide-init">
+            <div id="package-container-init">
+              <div class="input-container input-container__full-width">
+                <input
+                  id="origin-package-init"
+                  placeholder="Origin"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Origin </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="destination-package-init"
+                  placeholder="Destination"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Destination </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="outbound-date-package-init"
+                  placeholder="Outbound Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Outbound Date </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="return-date-package-init"
+                  placeholder="Return Date"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Return Date </label>
+              </div>
+            </div>
+            <button id="cta-package-init">Request Quote</button>
+          </section>
+          <!-- Adventure -->
+          <section id="adv-section-init" class="hide-init">
+            <div id="adv-container-init">
+              <div class="input-container input-container__full-width">
+                <input
+                  id="park-adv-init"
+                  placeholder="Park"
+                  class="input-field"
+                  type="text"
+                />
+                <label for="" class="input-label">Park </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="valid-from-adv-init"
+                  placeholder="Valid from"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Valid from </label>
+              </div>
+              <div class="input-container input-container__full-width">
+                <input
+                  id="valid-to-adv-init"
+                  placeholder="Valid to"
+                  class="input-field"
+                  type="date"
+                />
+                <label for="" class="input-label">Valid to </label>
+              </div>
+            </div>
+            <button id="cta-adv-init">Request Quote</button>
+          </section>
         </div>
-
+      </div>
     </div>
-
-    <div id="gift-cards">
-        <div class="gift-card-item">
-            <img src="images/gc-1.png">
-            <button>Buy Now</button>
+    <div class="mid-section">
+      <div class="gift-card-container">
+        <div class="gift-card">
+          <img src="images/gc-1.png" class="gift-card__img" />
         </div>
-
-        <div class="gift-card-item">
-            <img src="images/gc-2.png">
-            <button>Buy Now</button>
+        <div class="gift-card">
+          <img src="images/gc-2.png" class="gift-card__img" />
         </div>
-
-        <div class="gift-card-item">
-            <img src="images/gc-3.png">
-            <button>Buy Now</button>
+        <div class="gift-card">
+          <img src="images/gc-3.png" class="gift-card__img" />
         </div>
-
-        <div class="gift-card-item">
-            <img src="images/gc-4.png">
-            <button>Buy Now</button>
+        <div class="gift-card">
+          <img src="images/gc-4.png" class="gift-card__img" />
         </div>
+      </div>
     </div>
-
-    <div id="transparent-container">
-
+    <div class="about-us" id="about-us">
+      <div class="about-us-img">
+        <div class="about-us-img-container__1">
+          <img
+            src="images/about/beautiful-luxury-umbrella-chair-around-outdoor-swimming-pool-hotel-resort-with-coconut-palm-tree-blue-sky.jpg"
+            class="about-us-img__1"
+          />
+        </div>
+        <div class="about-us-img-container__2">
+          <img
+            src="images/about/summer-edge-freedom-model-fresh.jpg"
+            class="about-us-img__2"
+          />
+        </div>
+        <div class="about-us-img-container__3">
+          <img
+            src="images/about/vertical-view-famous-rock-santa-giulia-beach.jpg"
+            class="about-us-img__3"
+          />
+        </div>
+      </div>
+      <div class="about-us-tetx">
+        <h3 class="about-us__title">About Us</h3>
+        <p class="about-us__body">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+          consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
+          nec, vulputate eget, arcu.
+        </p>
+      </div>
     </div>
+    <div class="contact-us" id="contact-us">
+      <h3 class="contact-us__title">Contact Us</h3>
+      <p class="contact-us__body">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor.
+      </p>
+      <form class="contact-us__form">
+        <div class="field-container">
+          <label for="first-name"> First Name </label>
+          <input type="text" class="form__first-name" id="first-name" />
+        </div>
+        <div class="field-container">
+          <label for="last-name"> Last Name </label>
+          <input type="text" class="form__last-name" id="last-name" />
+        </div>
+        <div class="field-container field-container__email">
+          <label for="email">Email</label>
+          <input type="email" class="form__email" id="email" />
+        </div>
+        <div class="field-container field-container__message">
+          <label for="message">Message</label>
+          <input type="email" class="form__message" id="message" />
+        </div>
 
-    <div class="pop-up">
-        <form id="personal-info" action="/results.html">
-            <span id="close" onclick="onCloseClick(event)">X</span>
-            <p>Tell us a bit about yourself</p>
-            <div id="name-fileds-container">
-                <div id="fname-field">
-                    <label for="fname">Your first name</label><br />
-                    <input type="text" placeholder="First name" id="fname" /><br />
-                </div>
-
-                <div id="lname-field">
-                    <label for="lname">Your last name</label><br />
-                    <input type="text" id="lname" placeholder="Last name" /><br />
-                </div>
-
-            </div>
-
-            <div id="email-container">
-                <label> Enter your email</label><br />
-                <input type="email" id="email" placeholder="Your email" /><br />
-            </div>
-
-
-            <div id="checkbox-container">
-                <input type="checkbox" checked id="chbPrivacy" />
-                <label for="chbPrivacy">I agree to terms and conditions.</label><br />
-            </div>
-
-
-
-            <input type="submit" value="Continue" id="btn-submit" />
-
-        </form>
+        <input type="submit" value="Send Message" class="form__submit" />
+      </form>
     </div>
-
-
-    <footer>&copy;2022 Maximum Travel. All rights reserved.</footer>
-
-    
-</body>
-
+    <footer class="footer-container">
+      <div class="footer-content">&copy;2024 All rights reserved.</div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
